@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Midway</title>
+</head>
+<style>
+    #rzp-button1{
+        transform: translate(500%,500%);
+    }
+    body h2{
+        text-align:center;
+    }
+</style>
+<body><h2>Payment Checkout Razorpay</h2>
+    <button id="rzp-button1">Pay with Razorpay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_2ygIkm41kBnPQJ", // Enter the Key ID generated from the Dashboard
+    "name": "Library",
+    "description": "Late Fine Payment",
+    "image": "lib1.jpeg",
+    "order_id": "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature);
+    },
+    "theme": {
+        "color": "#ff6e40"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+</body>
+</html>
+
