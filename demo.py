@@ -1,10 +1,8 @@
 from ReturnBook import *
 import razorpay
-keyid='rzp_test_2ygIkm41kBnPQJ'
-keysecret='K0HdVQEH8mKamdNWRbIqVvvj'
+keyid='Your key id'
+keysecret='Your key secret'
 client = razorpay.Client(auth=(keyid, keysecret))
-# pay_this_fine=fine.get()
-# f=int(pay_this_fine)
 #checkout
 data = { 
     "amount": 1*100, 
