@@ -1,3 +1,4 @@
+# masterpassword="Libraryhost@1234" for staff*
 from tkinter import *
 import pymysql
 from tkinter.ttk import*
