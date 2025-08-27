@@ -14,7 +14,11 @@ It is recommended to get the insights about Application Program Integration (API
 
 # Registration Window
 
-![image.png]
+![Registration Window](img.png)
+
+# Library Window
+
+![Library Window](lib.jpg)
 
 # Members
 
